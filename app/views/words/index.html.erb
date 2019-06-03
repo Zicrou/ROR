@@ -1,0 +1,19 @@
+<h1>Listing Words</h1>
+<%= link_to 'New word',new_word_path %>
+<table>
+  <tr>
+    <th>Nature</th>
+    <th>Word</th>
+    <th>Exemple</th>
+    <th></th>
+  </tr>
+ 
+  <% @words.each do |word| %>
+    <tr>
+      <td><%= word.nature %></td>
+      <td><%= word.word %></td>
+      <td><%= word.exemple %></td>
+      <td><%= link_to 'Show', word_path(word) %></td>
+    </tr>
+  <% end %>
+</table>

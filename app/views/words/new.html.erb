@@ -1,0 +1,38 @@
+<h1>New Word</h1>
+
+<%= form_with scope: :word, url:words_path, local: true do |form| %>
+  
+  <% if @word.errors.any? %>
+  <div id="error_explanation">
+      <h2>
+        <%= pluralize(@word.errors.count, "error") %> prohibited
+        this word from being saved:
+      </h2>
+      <ul>
+        <% @word.errors.full_messages.each do |msg| %>
+          <li style="color:red"><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p>
+      <%= form.label :Nature %><br>
+      <%= form.text_field :nature %>
+    </p>
+    <p>
+      <%= form.label :Word %><br>
+      <%= form.text_field :word %>
+    </p>
+   
+    <p>
+      <%= form.label :How_to_use %><br>
+      <%= form.text_area :exemple %>
+    </p>
+   
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Back', words_path %>
