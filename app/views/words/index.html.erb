@@ -14,6 +14,10 @@
       <td><%= word.word %></td>
       <td><%= word.exemple %></td>
       <td><%= link_to 'Show', word_path(word) %></td>
+      <td><%= link_to 'Edit', edit_word_path(word) %></td>
+      <td><%= link_to 'Destroy', word_path(word),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

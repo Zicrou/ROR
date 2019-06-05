@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
-	
+
+http_basic_authenticate_with name: "zicrou", password: "Zicrou", except: [:index, :show]	
 	def index
 		@words = Word.all
 	end
@@ -10,6 +11,10 @@ class WordsController < ApplicationController
 	
 	def new
 		@word = Word.new
+	end
+	
+	def edit
+		@word = Word.find(params[:id])
 	end
 
 	def create
@@ -26,6 +31,23 @@ class WordsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def update
+		 @word = Word.find(params[:id])
+ 
+		 if @word.update(kholalma_word)
+		   redirect_to @word
+		 else
+		   render 'edit'
+		  end
+	end
+
+	def destroy
+  		@word = Word.find(params[:id])
+  		@word.destroy
+ 
+  		redirect_to words_path
 	end
 
 	private

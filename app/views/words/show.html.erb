@@ -1,4 +1,3 @@
-<%= link_to 'Back', words_path %>
 
 <p>
   <strong>Nature:</strong>
@@ -14,3 +13,12 @@
   <strong>Exemple:</strong>
   <%= @word.exemple %>
 </p>
+
+<h2>Comments</h2>
+<%= render @word.comments %>
+
+<h2 style="color:blue">Add a comment:</h2>
+<%= render 'comments/form' %>
+ 
+<%= link_to 'Edit', edit_word_path(@word) %> |
+<%= link_to 'Back', words_path %>

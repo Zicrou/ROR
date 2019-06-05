@@ -1,13 +1,13 @@
-<h1>New Word</h1>
+<h1>Edit word</h1>
 
 
  
 <%= link_to 'Back', words_path %>
-
-<%= form_with scope: :word, url:words_path, local: true do |form| %>
-  
+ 
+<%= form_with(model: @word, local: true) do |form| %>
+ 
   <% if @word.errors.any? %>
-  <div id="error_explanation">
+    <div id="error_explanation">
       <h2>
         <%= pluralize(@word.errors.count, "error") %> prohibited
         this word from being saved:
@@ -19,24 +19,26 @@
       </ul>
     </div>
   <% end %>
-
-    <p>
-      <%= form.label :Nature %><br>
-      <%= form.text_field :nature %>
-    </p>
-    <p>
-      <%= form.label :Word %><br>
-      <%= form.text_field :word %>
-    </p>
+ 
+     <p>
+        <%= form.label :Nature %><br>
+        <%= form.text_field :nature %>
+     </p>
+   
+     <p>
+        <%= form.label :Word %><br>
+        <%= form.text_field :word %>
+     </p>
    
     <p>
       <%= form.label :How_to_use %><br>
       <%= form.text_area :exemple %>
     </p>
-   
-    <p>
-      <%= form.submit %>
-    </p>
-  <% end %>
 
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
 
